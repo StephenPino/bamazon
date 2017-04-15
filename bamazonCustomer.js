@@ -9,8 +9,6 @@ var connection = mysql.createConnection({
     database: "bamazon"
 });
 
-
-
 connection.connect(function (err) {
     if (err) throw err;
     console.log("connected as id " + connection.threadId);
@@ -19,7 +17,6 @@ connection.connect(function (err) {
 // Display Available Items
 connection.query('SELECT * FROM products', function (error, results, fields) {
     if (error) throw error;
-    console.log(results);
     console.log("Displaying available items for sale...\n----------------------------------------------");
     for (var i = 0; i < results.length; i++) {
         console.log("ID: " + results[i].item_id + "\nItem Name: " + results[i].product_name + "\nPrice: $" + results[i].price);
