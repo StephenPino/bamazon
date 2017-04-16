@@ -36,7 +36,6 @@ connection.query('SELECT * FROM products', function (error, results, fields) {
                 name: 'quantity',
                 message: 'How many ' + results[res.product - 1].product_name + "s would you like to purchase?"
             }]).then(function (ans) {
-                console.log(ans);
                 if (ans.quantity > results[res.product - 1].stock_quantity) {
                     console.log("Error: Insufficient quantity. There are currently only " + results[res.product - 1].stock_quantity + " " + results[res.product - 1].product_name + "s in stock.\nCanceling Order.");
                 }
@@ -56,5 +55,3 @@ connection.query('SELECT * FROM products', function (error, results, fields) {
         }
     });
 });
-
-
